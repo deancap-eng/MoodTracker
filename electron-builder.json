@@ -27,7 +27,7 @@
     "target": ["nsis"]
   },
   "mac": {
-    "target": ["dmg"],
+    "target": ["zip", "dmg"],
     "category": "public.app-category.productivity"
   },
   "linux": {
