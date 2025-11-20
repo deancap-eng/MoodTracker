@@ -1,0 +1,251 @@
+.dashboard-container {
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.dashboard-header-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.dashboard-title {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--ios-black);
+  margin-bottom: var(--spacing-xs);
+}
+
+.dashboard-subtitle {
+  font-size: 17px;
+  color: var(--ios-gray);
+}
+
+/* Filters */
+.filters-card {
+  margin-bottom: var(--spacing-lg);
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.quick-filters {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--ios-gray-lighter);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 15px;
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.stat-card {
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+.stat-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ios-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.stat-value {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: var(--spacing-sm);
+}
+
+.stat-description {
+  font-size: 13px;
+  color: var(--ios-gray);
+  line-height: 1.4;
+}
+
+/* Chart */
+.chart-card {
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-xl);
+}
+
+.chart-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ios-black);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Entries */
+.entries-card {
+  padding: var(--spacing-xl);
+}
+
+.entries-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ios-black);
+  margin-bottom: var(--spacing-lg);
+}
+
+.entries-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.entry-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--ios-gray-bg);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.entry-item:hover {
+  background: var(--ios-gray-lighter);
+  transform: translateX(4px);
+}
+
+.entry-indicator {
+  width: 8px;
+  height: 48px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.entry-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.entry-username {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ios-black);
+}
+
+.entry-mood {
+  font-size: 14px;
+  color: var(--ios-gray);
+}
+
+.entry-date {
+  text-align: right;
+  font-size: 14px;
+  color: var(--ios-gray);
+}
+
+.entry-time {
+  font-size: 13px;
+  color: var(--ios-gray-light);
+}
+
+/* Loading & Error States */
+.loading-card,
+.error-card,
+.empty-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  text-align: center;
+  gap: var(--spacing-md);
+}
+
+.loading-card p,
+.empty-card p {
+  color: var(--ios-gray);
+  font-size: 17px;
+}
+
+.error-card {
+  background: rgba(255, 59, 48, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .dashboard-header-actions {
+    width: 100%;
+  }
+
+  .dashboard-header-actions .btn {
+    flex: 1;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: var(--spacing-md);
+  }
+
+  .dashboard-title {
+    font-size: 28px;
+  }
+
+  .filters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-value {
+    font-size: 36px;
+  }
+
+  .entry-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .entry-indicator {
+    width: 100%;
+    height: 4px;
+  }
+
+  .entry-date {
+    text-align: left;
+  }
+}
