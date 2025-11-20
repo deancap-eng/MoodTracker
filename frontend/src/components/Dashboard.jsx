@@ -14,6 +14,7 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import apiFetch from '../utils/api';
+import Settings from './Settings';
 import './Dashboard.css';
 
 const MOOD_COLORS = {
@@ -42,6 +43,7 @@ function Dashboard({ user, token, onLogout }) {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [showSettings, setShowSettings] = useState(false);
 
   // Filters
   const [viewType, setViewType] = useState('all'); // 'all', 'average', 'user'
@@ -161,11 +163,23 @@ function Dashboard({ user, token, onLogout }) {
           <button onClick={() => navigate('/mood-entry')} className="btn btn-primary">
             Record Mood
           </button>
+          <button onClick={() => setShowSettings(true)} className="btn btn-secondary">
+            Settings
+          </button>
           <button onClick={onLogout} className="btn btn-ghost">
             Sign Out
           </button>
         </div>
       </div>
+
+      {showSettings && (
+        <Settings
+          user={user}
+          token={token}
+          onLogout={onLogout}
+          onClose={() => setShowSettings(false)}
+        />
+      )}
 
       {/* Filters */}
       <div className="card filters-card">

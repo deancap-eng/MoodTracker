@@ -12,6 +12,10 @@ An employee mood tracking application with an iOS-inspired interface. Available 
 - Average mood visualization
 - Clean iOS-style UI
 - Standalone desktop application (no installation of Node.js required)
+- **Remote user tracking** - Multiple employees can connect from different locations
+- **Centralized database** - All mood data stored on a central server
+- **Active session monitoring** - View which remote users are currently logged in
+- **Location tracking** - Track where mood entries are submitted from (IP, hostname)
 
 ## Quick Start (Desktop App)
 
@@ -100,6 +104,36 @@ Double-click to install and run the application. No additional setup required!
 The application icon is located at `electron/icon.svg`. To customize:
 1. Replace with your own 512x512 PNG image named `icon.png`
 2. Rebuild the application
+
+## Remote Deployment
+
+Mood Tracker supports remote users connecting to a central server. This allows all employees across your organization to track their moods in a shared database.
+
+### Quick Setup
+
+1. **Server Setup:**
+   - Install Mood Tracker on one computer (acts as the server)
+   - Note the IP address shown when the server starts
+   - Ensure firewall allows port 3000
+
+2. **Client Setup:**
+   - Install Mood Tracker on each employee's computer
+   - Open Settings in the Dashboard
+   - Enter server URL: `http://[SERVER-IP]:3000`
+   - Save and restart the app
+
+3. **Monitor Remote Users:**
+   - View active sessions in Settings
+   - See which employees are logged in remotely
+   - Track location information (IP, hostname)
+
+📖 **Full Guide:** See [REMOTE_DEPLOYMENT.md](REMOTE_DEPLOYMENT.md) for complete instructions on:
+- Network configuration
+- Firewall setup
+- Port forwarding
+- Cloud deployment
+- Troubleshooting
+- Security best practices
 
 ## Security
 

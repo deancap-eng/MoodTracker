@@ -68,6 +68,13 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid username or password' });
     }
 
+    // Track login session
+    const clientInfo = req.clientInfo || {};
+    db.prepare(`
+      INSERT INTO user_sessions (user_id, hostname, ip_address, user_agent)
+      VALUES (?, ?, ?, ?)
+    `).run(user.id, clientInfo.hostname, clientInfo.ip, clientInfo.userAgent);
+
     const token = jwt.sign(
       { id: user.id, username: user.username },
       process.env.JWT_SECRET || 'your-secret-key',
@@ -77,7 +84,12 @@ router.post('/login', async (req, res) => {
     res.json({
       message: 'Login successful',
       token,
-      user: { id: user.id, username: user.username }
+      user: {
+        id: user.id,
+        username: user.username,
+        displayName: user.display_name,
+        location: user.location
+      }
     });
   } catch (error) {
     console.error('Login error:', error);
