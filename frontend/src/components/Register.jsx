@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import apiFetch from '../utils/api';
 import './Auth.css';
 
 function Register({ onRegister }) {
@@ -26,7 +27,7 @@ function Register({ onRegister }) {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/auth/register', {
+      const response = await apiFetch('/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })

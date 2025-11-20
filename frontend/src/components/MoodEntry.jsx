@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MoodSelector from './MoodSelector';
+import apiFetch from '../utils/api';
 import './MoodEntry.css';
 
 function MoodEntry({ user, token, onLogout }) {
@@ -28,7 +29,7 @@ function MoodEntry({ user, token, onLogout }) {
 
     try {
       // Verify password by attempting login
-      const loginResponse = await fetch('/api/auth/login', {
+      const loginResponse = await apiFetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: user.username, password })
@@ -41,7 +42,7 @@ function MoodEntry({ user, token, onLogout }) {
       }
 
       // Submit mood entry
-      const moodResponse = await fetch('/api/mood/entry', {
+      const moodResponse = await apiFetch('/api/mood/entry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,0 +1,43 @@
+{
+  "appId": "com.moodtracker.app",
+  "productName": "Mood Tracker",
+  "directories": {
+    "output": "dist-electron"
+  },
+  "files": [
+    "electron/**/*",
+    "backend/**/*",
+    "frontend/dist/**/*",
+    "package.json",
+    "!node_modules/**/*",
+    "node_modules/express/**/*",
+    "node_modules/cors/**/*",
+    "node_modules/better-sqlite3/**/*",
+    "node_modules/bcryptjs/**/*",
+    "node_modules/jsonwebtoken/**/*",
+    "node_modules/dotenv/**/*"
+  ],
+  "extraResources": [
+    {
+      "from": ".env.example",
+      "to": ".env"
+    }
+  ],
+  "win": {
+    "target": ["nsis"]
+  },
+  "mac": {
+    "target": ["dmg"],
+    "category": "public.app-category.productivity"
+  },
+  "linux": {
+    "target": ["AppImage", "deb"],
+    "category": "Office"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true
+  }
+}

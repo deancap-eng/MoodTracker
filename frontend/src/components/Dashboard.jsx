@@ -13,6 +13,7 @@ import {
   Legend,
   ResponsiveContainer
 } from 'recharts';
+import apiFetch from '../utils/api';
 import './Dashboard.css';
 
 const MOOD_COLORS = {
@@ -58,7 +59,7 @@ function Dashboard({ user, token, onLogout }) {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch('/api/mood/users', {
+      const response = await apiFetch('/api/mood/users', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -86,7 +87,7 @@ function Dashboard({ user, token, onLogout }) {
         params.append('userId', selectedUser);
       }
 
-      const response = await fetch(`/api/mood/dashboard?${params}`, {
+      const response = await apiFetch(`/api/mood/dashboard?${params}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 

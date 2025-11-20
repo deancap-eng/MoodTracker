@@ -1,9 +1,14 @@
 node_modules
 dist
 build
+dist-electron
 *.sqlite
 *.db
 .env
 .DS_Store
 *.log
 .vite
+
+# Electron build artifacts
+out/
+release/

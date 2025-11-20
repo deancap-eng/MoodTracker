@@ -2,13 +2,19 @@
   "name": "mood-tracker",
   "version": "1.0.0",
   "description": "Employee mood tracking application",
-  "type": "module",
+  "main": "electron/main.cjs",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node backend/server.js",
     "client": "cd frontend && npm run dev",
     "build": "cd frontend && npm run build",
-    "start": "node backend/server.js"
+    "start": "node backend/server.js",
+    "electron": "electron .",
+    "electron:dev": "concurrently \"npm run server\" \"wait-on http://localhost:3000 && electron .\"",
+    "package": "npm run build && electron-builder build --config electron-builder.json",
+    "package:win": "npm run build && electron-builder build --win --config electron-builder.json",
+    "package:mac": "npm run build && electron-builder build --mac --config electron-builder.json",
+    "package:linux": "npm run build && electron-builder build --linux --config electron-builder.json"
   },
   "keywords": ["mood-tracker", "employee-wellness"],
   "author": "",
@@ -22,6 +28,9 @@
     "dotenv": "^16.3.1"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1",
+    "wait-on": "^7.2.0"
   }
 }

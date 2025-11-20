@@ -1,0 +1,14 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" rx="100" fill="#007AFF"/>
+
+  <!-- Simple smiley face -->
+  <circle cx="256" cy="256" r="160" fill="white"/>
+
+  <!-- Eyes -->
+  <circle cx="200" cy="220" r="20" fill="#007AFF"/>
+  <circle cx="312" cy="220" r="20" fill="#007AFF"/>
+
+  <!-- Smile -->
+  <path d="M 180 280 Q 256 350 332 280" stroke="#007AFF" stroke-width="20" fill="none" stroke-linecap="round"/>
+</svg>
